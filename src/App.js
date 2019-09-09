@@ -17,11 +17,7 @@ function App() {
   return (
     <div className="container">
       <section className="scoreboard">
-        <div className="topRow">
-          <Team teamName="Lions" teamScore={lionScore} teamParty="home"/>
-          <div className="timer">00:03</div>
-          <Team teamName="Tigers" teamScore={tigerScore} teamParty="away"/>         
-        </div>
+        <TopRow homeScore={lionScore} awayScore={tigerScore}/>
         <BottomRow />
       </section>
       <section className="buttons">
@@ -41,6 +37,16 @@ function App() {
       </section>
     </div>
   );
+}
+
+function TopRow(props){
+  return (
+    <div className="topRow">
+          <Team teamName="Lions" teamScore={props.homeScore} teamParty="home"/>
+          <div className="timer">00:03</div>
+          <Team teamName="Tigers" teamScore={props.awayScore} teamParty="away"/>         
+        </div>
+  )
 }
 
 function Team(props){
